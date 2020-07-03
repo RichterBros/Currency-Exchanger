@@ -12,13 +12,13 @@ function doTheThing(resultWeReceive) {
     let AUD = parseFloat(resultWeReceive.conversion_rates.AUD)
     let ARS = parseFloat(resultWeReceive.conversion_rates.ARS)
     let AED = parseFloat(resultWeReceive.conversion_rates.AED)
-    let USD = parseFloat(resultWeReceive.conversion_rates.USD)
+    let USD = $("#usDollarAmount").val();
     let exchange = new Exchange(USD, AED, ARS, AUD, BGN)
  console.log(exchange.usdToAed())
  console.log(USD)
  console.log(AED)
 console.log(exchange)
- 
+console.log($("#usDollarAmount").val())
     
     $("#thingGoesHere").text(JSON.stringify(resultWeReceive.conversion_rates))
    
@@ -36,7 +36,7 @@ console.log(exchange)
 $(document).ready(function() {
   
   $("#getAPIbutton").click(function() {
-
+    console.log($("#usDollarAmount").val())
     fetch(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/USD`) //fetch is a shortcut; it creates a promise object that executes a GET API request on the url fed into it.
       .then(function(responseJSON) {
         if (!responseJSON.ok) {
@@ -50,9 +50,9 @@ $(document).ready(function() {
       .then(function(messageFromPrevious) { //if .catch triggered, messageFromPrevious will be the  error message, if .catch did NOT trigger, messageFromPrevious will be the parsed JSON info 
         doTheThing(messageFromPrevious);
       
+       
       });
-      //let exchange = new Exchange(USD)
+      
     });
-    //let USD = parseInt($("#usDollarAmount"))
     
-});
+  });
