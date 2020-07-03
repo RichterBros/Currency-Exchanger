@@ -12,7 +12,10 @@ function doTheThing(resultWeReceive) {
    
    //$("#thingGoesHere").append(JSON.stringify(`${resultWeReceive} `));
     
-    $("#thingGoesHere").append(JSON.stringify(resultWeReceive.conversion_rates))
+    $("#thingGoesHere").text(JSON.stringify(resultWeReceive.conversion_rates.USD))
+    
+    let usd = parseInt(resultWeReceive.conversion_rates.USD)
+    console.log(usd)
     // $("#errorHere").html('');
   } else {
    // $("#errorHere").html(`${resultWeReceive}`);
@@ -20,10 +23,11 @@ function doTheThing(resultWeReceive) {
   }
 }
 
-
+// exchange = new Exchange()
 
 //user interface logic
 $(document).ready(function() {
+  
   $("#getAPIbutton").click(function() {
 
     fetch(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/USD`) //fetch is a shortcut; it creates a promise object that executes a GET API request on the url fed into it.
