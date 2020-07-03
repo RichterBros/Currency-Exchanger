@@ -26,12 +26,30 @@
 </div> 
 
 <!--<a href="#" id=getAPIbutton class="btn btn-primary">api</a>-->
-<button type="submit" button id="getAPIbutton" class="btn btn-primary">Submit your number!</button>
+
 <div id='thingGoesHere'></div>
 <div id='errorHere'>test</div>
 <div class="form-group">
   <label for="form">Please enter a USD amount:</label>
   <input type="form" class="form-control" id="usDollarAmount" placeholder="">
+  
+  <form id="first-form">
+    <div class="form-group" id="form-group1">
+      <label for="sel1"></label>
+      <select class="form-control" id="beverage" data-validation="required">
+        <option required> -- select an option -- </option>
+        <option value="1">United Arab Emirates Dirham</option>
+        <option value="2">Argentine Peso</option>
+        <option value="3">Australian Dollar</option>
+        <option value="4">Bulgarian Lev</option>
+      </select>
+    </div>
+  </form>
+  
+  
+  <button type="submit" button id="getAPIbutton" class="btn btn-primary">Submit your number!</button>
+
+<div id = "results"></div>
 </div>
 
 </body>

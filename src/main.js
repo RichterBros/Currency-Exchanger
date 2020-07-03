@@ -8,13 +8,13 @@ import { Exchange } from './currency-exchanger';
 //business logic
 function doTheThing(resultWeReceive) {
   if (resultWeReceive) {
-    let BGN = parseFloat(resultWeReceive.conversion_rates.BGN)
-    let AUD = parseFloat(resultWeReceive.conversion_rates.AUD)
-    let ARS = parseFloat(resultWeReceive.conversion_rates.ARS)
-    let AED = parseFloat(resultWeReceive.conversion_rates.AED)
-    let USD = $("#usDollarAmount").val();
+    let BGN = parseFloat(resultWeReceive.conversion_rates.BGN).toFixed(2)
+    let AUD = parseFloat(resultWeReceive.conversion_rates.AUD).toFixed(2)
+    let ARS = parseFloat(resultWeReceive.conversion_rates.ARS).toFixed(2)
+    let AED = parseFloat(resultWeReceive.conversion_rates.AED).toFixed(2)
+    let USD = parseFloat($("#usDollarAmount").val()).toFixed(2);
     let exchange = new Exchange(USD, AED, ARS, AUD, BGN)
- console.log(exchange.usdToAed())
+ $("#results").text(exchange.usdToAed() + " United Arab Emirates Dirham")
  console.log(USD)
  console.log(AED)
 console.log(exchange)

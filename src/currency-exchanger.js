@@ -11,8 +11,8 @@ export class Exchange {
   }
 
   usdToAed() {
-    
-    return this.USD * this.AED
+    //parseFloat($("#usDollarAmount").val()).toFixed(2);
+    return parseFloat(this.USD * this.AED).toFixed(2);
   }
 
 }
