@@ -9,4 +9,10 @@ export class Exchange {
     this.AUD = AUD;
     this.BGN = BGN;
   }
+
+  usdToAed() {
+    
+    return this.USD * this.AED
+  }
+
 }

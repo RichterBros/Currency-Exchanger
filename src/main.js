@@ -2,26 +2,33 @@ import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
-//import { Exchange } from './currency-exchanger';
+import { Exchange } from './currency-exchanger';
 
 
 //business logic
 function doTheThing(resultWeReceive) {
   if (resultWeReceive) {
-    //$("#thingGoesHere").html(`${resultWeReceive} `);
+    let BGN = parseFloat(resultWeReceive.conversion_rates.BGN)
+    let AUD = parseFloat(resultWeReceive.conversion_rates.AUD)
+    let ARS = parseFloat(resultWeReceive.conversion_rates.ARS)
+    let AED = parseFloat(resultWeReceive.conversion_rates.AED)
+    let USD = parseFloat(resultWeReceive.conversion_rates.USD)
+    let exchange = new Exchange(USD, AED, ARS, AUD, BGN)
+ console.log(exchange.usdToAed())
+ console.log(USD)
+ console.log(AED)
+console.log(exchange)
+ 
+    
+    $("#thingGoesHere").text(JSON.stringify(resultWeReceive.conversion_rates))
    
-   //$("#thingGoesHere").append(JSON.stringify(`${resultWeReceive} `));
-    
-    $("#thingGoesHere").text(JSON.stringify(resultWeReceive.conversion_rates.USD))
-    
-    let usd = parseInt(resultWeReceive.conversion_rates.USD)
-    console.log(usd)
     // $("#errorHere").html('');
   } else {
-   // $("#errorHere").html(`${resultWeReceive}`);
-   // $("#thingGoesHere").html('');
+    // $("#errorHere").html(`${resultWeReceive}`);
+    // $("#thingGoesHere").html('');
   }
 }
+
 
 // exchange = new Exchange()
 
@@ -44,6 +51,8 @@ $(document).ready(function() {
         doTheThing(messageFromPrevious);
       
       });
+      //let exchange = new Exchange(USD)
     });
-    //console.log(doTheThing())
+    //let USD = parseInt($("#usDollarAmount"))
+    
 });
