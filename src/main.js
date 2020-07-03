@@ -10,9 +10,9 @@ function doTheThing(resultWeReceive) {
   if (resultWeReceive) {
     //$("#thingGoesHere").html(`${resultWeReceive} `);
    
-   // $("#thingGoesHere").append(JSON.stringify(`${resultWeReceive} `));
+   //$("#thingGoesHere").append(JSON.stringify(`${resultWeReceive} `));
     
-    $("#thingGoesHere").append(JSON.stringify(resultWeReceive))
+    $("#thingGoesHere").append(JSON.stringify(resultWeReceive.conversion_rates))
     // $("#errorHere").html('');
   } else {
    // $("#errorHere").html(`${resultWeReceive}`);
