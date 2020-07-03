@@ -14,12 +14,28 @@ function doTheThing(resultWeReceive) {
     let AED = parseFloat(resultWeReceive.conversion_rates.AED).toFixed(2)
     let USD = parseFloat($("#usDollarAmount").val()).toFixed(2);
     let exchange = new Exchange(USD, AED, ARS, AUD, BGN)
- $("#results").text(exchange.usdToAed() + " United Arab Emirates Dirham")
- console.log(USD)
+
+
+if(parseInt($("#country").val()) === 1){
+    $("#results").text(exchange.usdToAed() + " United Arab Emirates Dirham(AED)")
+  
+
+  }else if (parseInt($("#country").val()) === 3){
+    $("#results").text(exchange.usdToArs() + " Australian Dollar(AUD)")
+  
+  }else if (Number.isInteger(parseInt($("#country").val())) === false){
+  $("#results").text("that currency doesn't exsist")
+
+}
+    console.log(USD)
  console.log(AED)
 console.log(exchange)
 console.log($("#usDollarAmount").val())
     
+console.log(parseInt($("#country").val()))
+
+
+
     $("#thingGoesHere").text(JSON.stringify(resultWeReceive.conversion_rates))
    
     // $("#errorHere").html('');
