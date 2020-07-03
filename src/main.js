@@ -5,7 +5,7 @@ import './styles.css';
 import { Exchange } from './currency-exchanger';
 
 
-//business logic
+
 function doTheThing(resultWeReceive) {
   if (resultWeReceive) {
     let BRL = parseFloat(resultWeReceive.conversion_rates.BRL).toFixed(2)
@@ -30,48 +30,30 @@ function doTheThing(resultWeReceive) {
     } else if (Number.isInteger(parseInt($("#country").val())) === false) {
       $("#results").text("that currency doesn't exsist")
     }
-    console.log(USD)
-    console.log(AED)
-    console.log(exchange)
-    console.log($("#usDollarAmount").val())
 
-    console.log(parseInt($("#country").val()))
+    JSON.stringify(resultWeReceive.conversion_rates)
 
-
-    //JSON.stringify(resultWeReceive.conversion_rates)
-    $("#thingGoesHere").text(JSON.stringify(resultWeReceive.conversion_rates))
-
-    // $("#errorHere").html('');
   } else {
-    // $("#errorHere").html(`${resultWeReceive}`);
-    // $("#thingGoesHere").html('');
+    $("#errorHere").html(`${resultWeReceive}`);
+    $("#thingGoesHere").html('');
   }
 }
 
-
-// exchange = new Exchange()
-
-//user interface logic
 $(document).ready(function () {
-
   $("#getAPIbutton").click(function () {
     console.log($("#usDollarAmount").val())
-    fetch(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/USD`) //fetch is a shortcut; it creates a promise object that executes a GET API request on the url fed into it.
+    fetch(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/USD`)
       .then(function (responseJSON) {
         if (!responseJSON.ok) {
-          throw Error(responseJSON.statusText); //if response is woops, pass an error status down to catch and catch will do something with it
+          throw Error(responseJSON.statusText);
         }
-        return responseJSON.json(); //if response is good, pass the response down to the next .then and .then will do something with it
+        return responseJSON.json();
       })
-      .catch(function (error) {  //only executes if response above was woops
+      .catch(function (error) {
         return error;
       })
-      .then(function (messageFromPrevious) { //if .catch triggered, messageFromPrevious will be the  error message, if .catch did NOT trigger, messageFromPrevious will be the parsed JSON info 
+      .then(function (messageFromPrevious) {
         doTheThing(messageFromPrevious);
-
-
       });
-
   });
-
 });
