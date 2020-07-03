@@ -2,47 +2,44 @@ import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
-import { Exchange } from './currency-exchanger';
+//import { Exchange } from './currency-exchanger';
 
-function getElements(response) {
-  
-  let exchange;
-  
-  if (response) {
 
-    exchange = new Exchange(response.conversion_rates);
-    //dino.splitDino();
-
+//business logic
+function doTheThing(resultWeReceive) {
+  if (resultWeReceive) {
+    //$("#thingGoesHere").html(`${resultWeReceive} `);
    
-
+   // $("#thingGoesHere").append(JSON.stringify(`${resultWeReceive} `));
+    
+    $("#thingGoesHere").append(JSON.stringify(resultWeReceive))
+    // $("#errorHere").html('');
   } else {
-    $('#dino-output').text("");
-    $('#error-output').text(`There was an error: ${response.message}`);
+   // $("#errorHere").html(`${resultWeReceive}`);
+   // $("#thingGoesHere").html('');
   }
 }
 
 
 
-
-
+//user interface logic
 $(document).ready(function() {
-  //$('#generate').click(function() {
+  $("#getAPIbutton").click(function() {
 
-    $('.keyboard').remove();
-    $('span').remove();
-
-    fetch(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/USD`)
-      .then(function(response) {
-        if (!response.ok) {
-          throw Error(response.statusText);
+    fetch(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/USD`) //fetch is a shortcut; it creates a promise object that executes a GET API request on the url fed into it.
+      .then(function(responseJSON) {
+        if (!responseJSON.ok) {
+          throw Error(responseJSON.statusText); //if response is woops, pass an error status down to catch and catch will do something with it
         }
-        return response.json();
+        return responseJSON.json(); //if response is good, pass the response down to the next .then and .then will do something with it
       })
-      .catch(function(error) {
+      .catch(function(error) {  //only executes if response above was woops
         return error;
       })
-      .then(function(jsonifiedResponse) {
-        getElements(jsonifiedResponse);
-      //});
-  });
+      .then(function(messageFromPrevious) { //if .catch triggered, messageFromPrevious will be the  error message, if .catch did NOT trigger, messageFromPrevious will be the parsed JSON info 
+        doTheThing(messageFromPrevious);
+      
+      });
+    });
+    //console.log(doTheThing())
 });
