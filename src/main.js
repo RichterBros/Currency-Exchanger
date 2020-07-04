@@ -4,8 +4,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
 import { Exchange } from './currency-exchanger';
 
-
-
 function doTheThing(resultWeReceive) {
   if (resultWeReceive) {
     let BRL = parseFloat(resultWeReceive.conversion_rates.BRL).toFixed(2)
@@ -15,7 +13,6 @@ function doTheThing(resultWeReceive) {
     let AED = parseFloat(resultWeReceive.conversion_rates.AED).toFixed(2)
     let USD = parseFloat($("#usDollarAmount").val()).toFixed(2);
     let exchange = new Exchange(USD, AED, ARS, AUD, BGN, BRL)
-
 
     if (parseInt($("#country").val()) === 1) {
       $("#results").text($("#usDollarAmount").val() + " USD is equal to: " + exchange.usdToAed() + " United Arab Emirates Dirham(AED)")

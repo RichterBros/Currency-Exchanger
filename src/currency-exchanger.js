@@ -1,5 +1,3 @@
-// project business logic goes here
-// exports!
 
 export class Exchange {
   constructor(USD, AED, ARS, AUD, BGN, BRL) {
@@ -28,5 +26,4 @@ export class Exchange {
   usdToBrl() {
     return parseFloat(this.USD * this.BRL).toFixed(2);
   }
-
 }
