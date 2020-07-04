@@ -38,7 +38,6 @@ function doTheThing(resultWeReceive) {
 
 $(document).ready(function () {
   $("#getAPIbutton").click(function () {
-    console.log($("#usDollarAmount").val())
     fetch(`https://v6.exchangerate-api.com/v6/${process.env.API_KEY}/latest/USD`)
       .then(function (responseJSON) {
         if (!responseJSON.ok) {
