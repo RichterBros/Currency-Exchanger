@@ -13,6 +13,10 @@ _enter an amount (in U.S. dollars) and then specify another currency (such as th
 | user enters amount they wish to exchange in USD and program will convert to specified currency:     |$1 us dollar | 5.35 Brazilian Real(BRL) |
 
 
+| Spec| Example input | Example Output
+| ----------- | ----------- | ----------- |
+| user enters amount they wish to exchange in USD and program will convert to specified currency: | "$1 us dollar"| "5.35 Brazilian Real(BRL)" |
+
 ## Setup/Installation Requirements
 
 ##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Open by downloading:
