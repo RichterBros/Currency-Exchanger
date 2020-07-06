@@ -6,7 +6,7 @@
 
 ## Description
 
-_enter an amount (in U.S. dollars) and then specify another currency (such as the  United Arab Emirates Dirham(AED)). The user should then see the total amount they entered in converted currency. In the example above, a user might enter 10 dollars and then see that amount in  United Arab Emirates Dirham._
+_Enter an amount (in U.S. dollars) and then specify another currency (such as the  United Arab Emirates Dirham(AED)). The user should then see the total amount they entered in converted currency. In the example above, a user might enter 10 dollars and then see that amount in  United Arab Emirates Dirham._
 
 ### Specs
 | Spec | Input | Output |
