@@ -18,6 +18,14 @@ _Enter an amount (in U.S. dollars) and then specify another currency (such as th
 | user enters amount they wish to exchange in USD and program will convert to specified currency: | "$1 us dollar"| "5.35 Brazilian Real(BRL)" |
 
 ## Setup/Installation Requirements
+##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create the API key:
+1. Visit the ExchangeRate-API site. Input your email address and click the "Get Free Key" button.
+2. You'll be prompted to create an account with your email, first name and a password. Agree to the terms of use and click "Get Started!"
+3. At this point, you'll be able to access a dashboard that includes your API key as well as your remaining API calls for the month.
+
+##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Setup Instructions:
+1. Place your token in an .env file at the top level of your directory.
+2. Include .env in .gitignore.
 
 ##### &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Open by downloading:
 1. Internet Browser
